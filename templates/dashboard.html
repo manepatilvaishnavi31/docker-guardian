@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Docker Guardian Dashboard</title>
+
+<style>
+
+body{
+    background:#0b1220;
+    color:white;
+    font-family:Arial;
+    padding:20px;
+}
+
+h1{
+    color:#00ffff;
+    text-align:center;
+}
+
+.card{
+    background:#1b263b;
+    padding:20px;
+    margin:20px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+
+.high{
+    color:red;
+    font-weight:bold;
+}
+
+.medium{
+    color:orange;
+    font-weight:bold;
+}
+
+.low{
+    color:lime;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Docker Guardian Dashboard</h1>
+
+{% for c in containers %}
+
+<div class="card">
+
+<h2>{{ c.name }}</h2>
+
+<p><b>CPU Usage:</b> {{ c.cpu }}</p>
+
+<p><b>Memory Usage:</b> {{ c.mem }}</p>
+
+<p>
+<b>Alert Status:</b>
+
+<span class="
+{% if c.risk == 'High' %}
+high
+{% elif c.risk == 'Medium' %}
+medium
+{% else %}
+low
+{% endif %}
+">
+
+{{ c.alert }}
+
+</span>
+
+</p>
+
+<p>
+
+<b>Failure Risk Prediction:</b>
+
+<span class="
+{% if c.risk == 'High' %}
+high
+{% elif c.risk == 'Medium' %}
+medium
+{% else %}
+low
+{% endif %}
+">
+
+{{ c.risk }}
+
+</span>
+
+</p>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>
