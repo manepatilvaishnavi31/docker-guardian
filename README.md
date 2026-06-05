@@ -1,5 +1,11 @@
 # Docker Guardian
 
+## Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
 ## Project Overview
 
 Docker Guardian is an Intelligent Docker Monitoring and Auto-Healing System developed to solve real-world container management challenges faced in modern DevOps environments.
